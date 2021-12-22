@@ -1,18 +1,24 @@
-class Solution:
-    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
-        if sum(gas) < sum(cost): return -1
+class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int tank = 0;
+        for(int i=0; i< gas.length; i++){
+            tank+=gas[i]-cost[i];
+        }
+        if(tank<0) return -1;
         
-        start=0
-        accumulation =0
-        for i in range(len(gas)):
-            current_gain = gas[i]
+        int start=0, accumulation=0;
+        for(int j=0; j<gas.length; j++){
+            int current_gain = gas[j];
             
-            if (current_gain+accumulation -cost[i])<0:
-                start=i+1
-                accumulation = 0
-            else:
-                accumulation+=current_gain-cost[i]
-        return start
-            
-            
-            
+            if(accumulation+current_gain-cost[j]<0){
+                start=j+1;
+                accumulation=0;
+            }
+            else{
+                accumulation+=current_gain-cost[j];
+            }
+        }
+        return start;
+        
+    }
+}
