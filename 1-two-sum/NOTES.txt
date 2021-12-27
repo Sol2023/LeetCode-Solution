@@ -1,7 +1,1 @@
-**Notes**
-The first solution is to use two for loops.
-You can traverse the array once, go through each of the numbers individually and then add each number traverse the rest of the array and kind of find the sum.
 
-```
-def twoNumberSum(array, )
-```
