@@ -1,4 +1,4 @@
-**Two for loops** 
+**1. Two for loops** 
 
 The first solution is to use two for loops.
 You can traverse the array once, go through each of the numbers individually, and then add each number traverse the rest of the array and find the sum
@@ -16,7 +16,7 @@ def twoNumberSum(array, targetNum):
     return []
 ```
 
-**Hashtable**
+**2. Hashtable**
 
 The second solution is to a Hashtable.
 As we can see, the first solution is not very optimal from the time point of view. So perhaps the better way to solve this here is to use a hashtable.
@@ -40,7 +40,7 @@ def twoNumberSum(array, targetNum):
   return []
 ```
 
-**Two pointers**
+**3. Two pointers**
 
 The third way to solve this problem more optimal than the two for loops without using a Hashtable is to use two pointers. First we have to sort the array, which would take O(nlogN) time. And we don't use extra space.
 
