@@ -1,6 +1,8 @@
-**Two for loops**
+**Two for loops** 
+
 The first solution is to use two for loops.
 You can traverse the array once, go through each of the numbers individually, and then add each number traverse the rest of the array and find the sum
+
 **O(N^2) time| O(1) space**
 
 ```
@@ -15,6 +17,7 @@ def twoNumberSum(array, targetNum):
 ```
 
 **Hashtable**
+
 The second solution is to a Hashtable.
 As we can see, the first solution is not very optimal from the time point of view. So perhaps the better way to solve this here is to use a hashtable.
 This gonna cost extra space, but it might make the algorithm faster.
@@ -22,6 +25,7 @@ This gonna cost extra space, but it might make the algorithm faster.
 So what do I mean by using a hashtable.
 
 Basically, you know the target num, as you traverse the array, you can get the current number. So the potential Number is target Number minus current number.And if the potential number is not in the hashtable, you can store the number and its index in the hashtable. If the potential number is in the hashtable, you can return its index and the index of current num.
+
 **O(N) time| O(N) space**
 
 ```
