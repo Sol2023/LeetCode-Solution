@@ -1,54 +1,30 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def minDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        queue = collections.deque([(root, 1)])
-        while queue:
-            node, depth = queue.popleft()
-            if node:
-                if not node.left and not node.right:
-                    return depth
-                else:
-                    queue.append((node.left, depth+1))
-                    queue.append((node.right, depth+1))
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int minDepth(TreeNode root) {
+        if(root== null) return 0;
+        if(root.left==null) return 1+ minDepth(root.right);
+        if(root.right==null) return 1+minDepth(root.left);
         
+        int leftMinDepth = 1+minDepth(root.left);
+        int rightMinDepth = 1+minDepth(root.right);
         
+        int minDepth = Math.min(leftMinDepth, rightMinDepth);
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-# # DFS
-# def minDepth1(self, root):
-#     if not root:
-#         return 0
-#     if None in [root.left, root.right]:
-#         return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
-#     else:
-#         return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
- 
-# # BFS   
-# def minDepth(self, root):
-#     if not root:
-#         return 0
-#     queue = collections.deque([(root, 1)])
-#     while queue:
-#         node, level = queue.popleft()
-#         if node:
-#             if not node.left and not node.right:
-#                 return level
-#             else:
-#                 queue.append((node.left, level+1))
-#                 queue.append((node.right, level+1))
-        
+        return minDepth;
+    }
+}
+
