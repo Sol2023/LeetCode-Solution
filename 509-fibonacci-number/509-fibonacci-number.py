@@ -1,3 +1,4 @@
+# Time O(n) Space O(1)
 class Solution:
     def fib(self, n: int) -> int:
         lastTwo = [0,1]
