@@ -1,19 +1,20 @@
 class Solution {
     public int fib(int n) {
-        HashMap<Integer, Integer> memorize = new HashMap<Integer, Integer>();
-        memorize.put(0,0);
-        memorize.put(1,1);
+        int[] lastTwo =new int[2];
+        lastTwo[0] = 0;
+        lastTwo[1] = 1;
+        int count =2;
+        while(count <= n) {
+            int nextNum = lastTwo[0] + lastTwo[1];
+            lastTwo[0] = lastTwo[1];
+            lastTwo[1] = nextNum;
+            count++;
+        }
         
-        return getNFib(n, memorize);
+        return n>0 ? lastTwo[1] : lastTwo[0];
+        
     }
     
-    public int getNFib(int n, HashMap<Integer,Integer> memorize) {
-        if(memorize.containsKey(n)){
-            return memorize.get(n);
-        } else {
-            memorize.put(n, getNFib(n-1, memorize)+ getNFib(n-2, memorize));
-            return memorize.get(n);
-        }
-    }
+   
         
 }
