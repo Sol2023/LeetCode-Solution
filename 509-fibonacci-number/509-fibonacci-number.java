@@ -1,9 +1,19 @@
 class Solution {
     public int fib(int n) {
-        if(n==0) return 0;
-        else if(n==1) return 1;
-        else{
-            return fib(n-1)+ fib(n-2);
+        HashMap<Integer, Integer> memorize = new HashMap<Integer, Integer>();
+        memorize.put(0,0);
+        memorize.put(1,1);
+        
+        return getNFib(n, memorize);
+    }
+    
+    public int getNFib(int n, HashMap<Integer,Integer> memorize) {
+        if(memorize.containsKey(n)){
+            return memorize.get(n);
+        } else {
+            memorize.put(n, getNFib(n-1, memorize)+ getNFib(n-2, memorize));
+            return memorize.get(n);
         }
     }
+        
 }
