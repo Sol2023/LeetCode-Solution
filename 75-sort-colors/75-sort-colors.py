@@ -4,12 +4,14 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         isSorted=False
+        count=0
         while not isSorted:
             isSorted=True
-            for i in range(len(nums)-1):
+            for i in range(len(nums)-1-count):
                 if nums[i]>nums[i+1]:
                     self.swap(i,i+1, nums)
                     isSorted=False
+            count+=1
         
         return nums
     
