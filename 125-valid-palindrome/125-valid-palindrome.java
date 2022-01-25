@@ -1,18 +1,29 @@
-class Solution:
-    def isPalindrome(self, s: str) -> bool:
-        left=0
-        right=len(s)-1
+class Solution {
+    public boolean isPalindrome(String s) {
+        int left=0;
+        int right = s.length()-1;
+        char cLeft;
+        char cRight;
         
-        while left<right:
-            while left<right and not s[left].isalnum():
-                left+=1
+        while(left< right){
+            cLeft = s.charAt(left);
+            cRight = s.charAt(right);
             
-            while left< right and not s[right].isalnum():
-                right-=1
+            if(!Character.isLetterOrDigit(cLeft)){
+                left++;
+            } else if (!Character.isLetterOrDigit(cRight)){
+                right--;
+            } else{
+                if(Character.toLowerCase(cLeft)!=Character.toLowerCase(cRight)){
+                    return false;
+                } else{
+                    left++;
+                    right--;
+                }
             
-            if s[left].lower()!=s[right].lower():
-                return False
-            left+=1
-            right-=1
-        return True
+            }
+        }
         
+        return true;
+    }
+}
