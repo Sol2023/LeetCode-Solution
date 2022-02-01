@@ -5,13 +5,11 @@ class Solution:
         repeatedDNA=[]
         
         for i in range(len(s)-9):
-            if s[i:i+10] in sequences:
-                sequences[s[i:i+10]]+=1
+            current = s[i:i+10]
+            if current in sequences and current not in repeatedDNA:
+                repeatedDNA.append(current)
             else:
-                sequences[s[i:i+10]] = 0
-        print(sequences)
-        for key in sequences:
-            if sequences[key]>=1:
-                repeatedDNA.append(key)
+                sequences[s[i:i+10]] = 1
+        
         
         return repeatedDNA
