@@ -4,7 +4,7 @@ class Solution:
         sequences = {}
         repeatedDNA=[]
         
-        for i in range(len(s)):
+        for i in range(len(s)-9):
             if s[i:i+10] in sequences:
                 sequences[s[i:i+10]]+=1
             else:
