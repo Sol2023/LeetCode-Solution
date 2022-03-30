@@ -15,10 +15,9 @@ class Solution:
             
             if pivotElement ==target:
                 return True
+            elif pivotElement > target:
+                right=pivot-1
             else:
-                if pivotElement > target:
-                    right=pivot-1
-                else:
-                    left=pivot+1
+                left=pivot+1
         
         return False
