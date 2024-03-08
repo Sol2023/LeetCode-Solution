@@ -17,9 +17,9 @@ class Solution {
         int min_price = Integer.MAX_VALUE;
         
         for(int price: prices) {
-            
-            min_price = Math.min(min_price, price);
             result = Math.max(result, price - min_price);
+            min_price = Math.min(min_price, price);
+            
             
         }
         
