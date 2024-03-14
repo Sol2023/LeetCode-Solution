@@ -21,7 +21,10 @@ class Solution {
 
 
         String base = str1.substring(0,i);
+        // int n1 = l1/i;
+        // int n2 = l2/i;
 
         return str1.replace(base, "").isEmpty() && str2.replace(base, "").isEmpty();
+        // return str1.equals(n1 * base) && str2.equals(n2 * base);
     }
 }
